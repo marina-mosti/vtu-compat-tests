@@ -2,7 +2,8 @@ import { shallowMount } from '@vue/test-utils'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 const linkStub = {
-  template: '<a/>'
+  template: '<a/>',
+  name: 'LinkStub'
 }
 
 describe('HelloWorld.vue', () => {
@@ -10,8 +11,10 @@ describe('HelloWorld.vue', () => {
     const msg = 'new message'
     const wrapper = shallowMount(HelloWorld, {
       props: { msg },
-      stubs: {
-        BaseLink: linkStub
+      global: {
+        stubs: {
+          BaseLink: linkStub
+        }
       }
     })
 
